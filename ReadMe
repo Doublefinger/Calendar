@@ -1,0 +1,10 @@
+Shitianyu Pan
+447948
+
+1. Creative Portion: UI design (This really takes the most of time including writing the associated JQuery selector and also JS function closure). 
+    Including serveral dropdown buttons with the right appearance and logic.
+2. Calendar Share System. A can share calendar with B, so that B can view it through his page, but A can not view B's calendar unless B share it with A.
+
+
+Comment: Because of the HTTP Header issue, this website might only work for Chrome Brower. FireFox and Safari retreate data as XML although I set header to Json manually.
+
