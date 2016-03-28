@@ -54,7 +54,7 @@ function create()
     global $mysqli;
 
     //get userId by username
-    $id = getUserId();
+    $id = getUserId(SESSION('user_name'));
 
     //insert event into table
 
@@ -132,15 +132,20 @@ function display()
     $month = POST('month');
     $date = POST('date');
     $year = POST('year');
+    $friend = POST('friend');
     if (is_null($month) || is_null($date) || is_null($year)) {
         echo "fail";
         return;
     }
 
+
     $from = date(DATE_ATOM, mktime(0, 0, 0, $month+1, $date, $year));
     $to = date("Y-m-d H:i:s", strtotime($from. '+35 day'));
-
-    $id = getUserId();
+    if(!is_null($friend)){
+        $id = getUserId($friend);
+    } else {
+        $id = getUserId(SESSION('user_name'));
+    }
 
     global $mysqli;
 
@@ -166,11 +171,10 @@ function display()
     echo json_encode($events);
 }
 
-function getUserId(){
+function getUserId($username){
     global $mysqli;
 
     //get userId by username
-    $username = SESSION('user_name');
     $stmt = $mysqli->prepare("SELECT id FROM Users WHERE username=?");
     if (!$stmt) {
         printf("Query Prep Failed: %s\n", $mysqli->error);

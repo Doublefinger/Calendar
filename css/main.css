@@ -1,8 +1,9 @@
-#log_out {
+#log_in_out, .right-header {
     position: relative;
-    margin-right: 5%;
+    margin-right: 3%;
     float: right;
 }
+
 
 .day-names, .days-events {
     min-width: 180px;
