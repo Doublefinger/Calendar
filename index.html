@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="calender-header">
+    <button class="btn btn-default" id="today_btn">Today</button>
+
+    <button class="btn btn-default" id="prev_month_btn">
+        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+    </button>
+
+    <button class="btn btn-default" id="next_month_btn">
+        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+    </button>
+    <span id="date"></span>
+    <button class="btn btn-default" id="log_out">Log out</button>
+</div>
+<div class="calendar-body">
+    <table class="day-names-table" id="dayNamesTable">
+        <thead>
+        <tr>
+            <th class="day-names">Sun</th>
+            <th class="day-names">Mon</th>
+            <th class="day-names">Tue</th>
+            <th class="day-names">Wed</th>
+            <th class="day-names">Thu</th>
+            <th class="day-names">Fri</th>
+            <th class="day-names">Sat</th>
+        </tr>
+        </thead>
+    </table>
+    <div class="event-container" id="eventContainer">
+        <div class="month-row">
+            <table class="table-bordered">
+                <tbody id="calendarBody">
+                <tr>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                </tr>
+                <tr>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                </tr>
+                <tr>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                </tr>
+                <tr>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                </tr>
+                <tr>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                    <td class="days-events" data-toggle="modal" data-target="#myModal"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal from http://getbootstrap.com/javascript/#modals -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Event</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="event-date" class="control-label">Date:</label>
+                        <input type="text" class="form-control" id="event-date" disabled="disabled">
+                        <br>
+                        <label for="event-start" class="control-label">Time:</label>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="event-start"
+                                           aria-label="..." placeholder="Start time">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                id="date-start" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" value="am">am<span
+                                                class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#">am</a></li>
+                                            <li><a href="#">pm</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="event-end" aria-label="..."
+                                           placeholder="End time">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                id="date-end" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" value="am">am<span
+                                                class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#">am</a></li>
+                                            <li><a href="#">pm</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <label for="event-description" class="control-label">Detail:</label>
+                        <input type="text" class="form-control" id="event-description">
+                        <input type="hidden" name="token" id="token">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="deleteEvent">Delete</button>
+                <button type="button" class="btn btn-primary" id="editEvent">Create event</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<!-- jQuery -->
+<script src="jquery/jquery-1.12.0.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+<script src="js/calendar.js"></script>
+
+<script src="js/main.js"></script>
